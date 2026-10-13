@@ -57,25 +57,30 @@ th, td {
   text-align: left;
 }
 #chartrading {
-
-
-width:650px;
+  width: 100%;
+  max-width: 1000px;
 }
 input[type="number"] {
    width:50px;
 }
 .button {
-border: none;
+  -webkit-appearance: none;
+  border: none;
   color: white;
-  padding: 12px 28px;
+  padding: 14px 36px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  opacity:1;
+  border-radius: 6px;
+  margin: 0 6px;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  opacity: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 .saldo {
   text-align:center;
@@ -101,8 +106,8 @@ input[type="submit"][disabled]:hover
 }
 
 .result_value {background-color: #0099FF; }
-.button1 {background-color: #0099FF; } /* Azul */
-.button2 {background-color: #f44336;} /* Vermelho */
+.button1 {background-color: #00a86b !important; } /* Verde - Comprar */
+.button2 {background-color: #e63946 !important;} /* Vermelho - Vender */
 .button3 {background-color: #00cccc;}
 .button1:hover {box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); }
 .button2:hover { box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); }
@@ -173,33 +178,32 @@ input[type="submit"][disabled]:hover
  
 <body>
   <h4>Simulador de Day Trade - FOREX EUR/BRL - 24h de segunda a sexta</h4>
-<div>
-<iframe height="480" width="650" frameBorder="0" src="https://ssltvc.forexprostools.com/?pair_ID=1617&height=480&width=650&interval=300&plotStyle=candles&domain_ID=30&lang_ID=12&timezone_ID=10"></iframe>
+<div style="background:#1a1a1a;border-radius:8px;padding:12px;margin-bottom:16px;box-shadow:0 4px 20px rgba(0,0,0,0.15);">
+<iframe height="600" width="1000" frameBorder="0" src="https://ssltvc.forexprostools.com/?pair_ID=1617&height=600&width=1000&interval=300&plotStyle=candles&domain_ID=30&lang_ID=12&timezone_ID=10" style="display:block;margin:0 auto;border:none;border-radius:4px;"></iframe>
 </div>
 <div id="chartrading">
 
-<div align="center">
-
+<div align="center" style="background:#1a1a1a;border-radius:8px;padding:20px;margin-bottom:16px;">
 <button  class="button button1" id="button1" onclick="fcompra()">Comprar</button>
 <button class="button button2" id="button2" onclick="fvenda()">Vender</button>
 <button class="button button3" onclick="fzerar()"  style="display: none;">Zerar</button>
 </div>
 <br>
-<div align="left">
- <label for="quantity">Micro Lotes (x1000):</label>
-  <input type="number" id="quantity" name="quantity" min="1" max="100000" value="10";>
-  <h4 id="posicao">Posição: Zerado </h4>
+<div align="left" style="background:#f8f9fa;border-radius:8px;padding:16px 20px;margin-bottom:16px;border:1px solid #e0e0e0;">
+ <label for="quantity" style="font-weight:bold;color:#333;">Micro Lotes (x1000):</label>
+  <input type="number" id="quantity" name="quantity" min="1" max="100000" value="10" style="padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:15px;width:80px;">
+  <h4 id="posicao" style="margin-top:12px;color:#333;">Posição: Zerado </h4>
 </div>
 
-<table style="width:100%">
+<table style="width:100%;border-radius:8px;overflow:hidden;">
  
   <tr>
     <td>Resultado aberto:</td>
-    <td id="saldo">R$ 0,00</td>
+    <td id="saldo" style="font-weight:bold;font-size:16px;">R$ 0,00</td>
   </tr>
   <tr>
     <td>Resultado fechado:</td>
-    <td id="result_fechado" >R$ 0,00</td>
+    <td id="result_fechado" style="font-weight:bold;font-size:16px;">R$ 0,00</td>
   </tr>
 </table>
 
