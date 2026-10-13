@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta name="google" content="notranslate" />
+  <meta name="msapplication-tap-highlight" content="no">
+  <link href="./assets/favicon.ico" rel="icon">
+  <title>Megaun - Entrar</title>
+  <link href="./main.82cfd66e.css" rel="stylesheet">
+  <style>
+    .auth-container {
+      max-width: 420px;
+      margin: 40px auto;
+      padding: 40px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .auth-container h1 {
+      font-size: 1.8em;
+      color: #0099FF;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .auth-container p.subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 0.95em;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+      font-size: 0.9em;
+      color: #333;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 15px;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus {
+      border-color: #0099FF;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0,153,255,0.1);
+    }
+    .btn-primary {
+      width: 100%;
+      padding: 14px;
+      background: #0099FF;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover {
+      background: #0077cc;
+    }
+    .auth-footer {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 0.9em;
+      color: #666;
+    }
+    .auth-footer a {
+      color: #0099FF;
+      text-decoration: none;
+    }
+    .auth-footer a:hover {
+      text-decoration: underline;
+    }
+    .alert {
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+      display: none;
+    }
+    .alert.error {
+      background: #fee;
+      color: #c33;
+      border: 1px solid #fcc;
+    }
+    .alert.success {
+      background: #efe;
+      color: #363;
+      border: 1px solid #cfc;
+    }
+    .user-info {
+      display: none;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .user-info .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #0099FF;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0 auto 12px;
+    }
+    .user-info p {
+      color: #333;
+      font-size: 0.95em;
+    }
+    .btn-logout {
+      width: 100%;
+      padding: 12px;
+      background: #f44336;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 16px;
+    }
+    .btn-logout:hover {
+      background: #d32f2f;
+    }
+    .btn-dashboard {
+      width: 100%;
+      padding: 12px;
+      background: #00cccc;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 12px;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .btn-dashboard:hover {
+      background: #00aaaa;
+    }
+  </style>
+</head>
+<body>
+<header class="">
+  <div class="navbar navbar-default visible-xs">
+    <button type="button" class="navbar-toggle collapsed">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a href="./index.html" class="navbar-brand">Megaun</a>
+  </div>
+  <nav class="sidebar">
+    <div class="navbar-collapse" id="navbar-collapse">
+      <div class="site-header">
+        <a class="site-brand" href="./index.html" title="Megaun" align="center">
+          <p align="center" style="font-size:1.4em;font-weight:bold;color:#0099FF;">Megaun</p>
+        </a>
+        <p><b>Par de moedas:</b></p>
+        <select id="par_moeda" onchange="run()">
+          <option hidden disabled selected value> --/-- </option>
+          <option value="usd">USD/BRL</option>
+          <option value="cad">CAD/BRL</option>
+          <option value="eur">EUR/BRL</option>
+          <option value="gbp">GBP/BRL</option>
+          <option value="ars">ARS/BRL</option>
+          <option value="chf">CHF/BRL</option>
+          <option value="aud">AUD/BRL</option>
+          <option value="cny">CNY/BRL</option>
+          <option value="ils">ILS/BRL</option>
+        </select>
+      </div>
+      <ul class="nav">
+        <li><a href="./index.html" title="">Home</a></li>
+        <li><a href="./about.html" title="">Calendário Econômico</a></li>
+        <li><a href="./services.html" title="">Resumo Técnico</a></li>
+        <li><a href="./project.html" title="">Estudar Análise Técnica</a></li>
+        <li><a href="./register.html" title="">Criar Conta</a></li>
+        <li><a href="./login.html" title="">Entrar</a></li>
+      </ul>
+      <nav class="nav-footer">
+        <p>© 2026 | Megaun</p>
+      </nav>
+    </div>
+  </nav>
+</header>
+<main class="" id="main-collapse">
+  <div class="auth-container">
+    <!-- Login form (shown when not logged in) -->
+    <div id="loginSection">
+      <h1>Entrar</h1>
+      <p class="subtitle">Acesse sua conta Megaun</p>
+      <div class="alert error" id="errorMsg"></div>
+      <form id="loginForm" onsubmit="return login(event)">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required placeholder="seu@email.com">
+        </div>
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input type="password" id="password" name="password" required placeholder="Sua senha">
+        </div>
+        <button type="submit" class="btn-primary">Entrar</button>
+      </form>
+      <div class="auth-footer">
+        Não tem uma conta? <a href="./register.html">Criar Conta</a>
+      </div>
+    </div>
+
+    <!-- Logged in section (shown after successful login) -->
+    <div id="loggedInSection" style="display:none;">
+      <h1>Bem-vindo</h1>
+      <div class="user-info" id="userInfo">
+        <div class="avatar" id="userAvatar"></div>
+        <p id="userName"></p>
+        <p id="userEmail" style="color:#999;font-size:0.85em;"></p>
+      </div>
+      <a href="./index.html" class="btn-dashboard">Ir para a Plataforma</a>
+      <button class="btn-logout" onclick="logout()">Sair</button>
+    </div>
+  </div>
+</main>
+<script>
+function run() {
+  var moeda_par = document.getElementById("par_moeda").value;
+  var pages = {usd:"index.html",cad:"cad.html",eur:"eur.html",gbp:"gbp.html",ars:"ars.html",chf:"chf.html",aud:"aud.html",cny:"cny.html",ils:"ils.html"};
+  if (pages[moeda_par]) window.location = pages[moeda_par];
+}
+
+function login(e) {
+  e.preventDefault();
+  var email = document.getElementById("email").value.trim().toLowerCase();
+  var password = document.getElementById("password").value;
+  var errorEl = document.getElementById("errorMsg");
+  errorEl.style.display = "none";
+
+  var users = JSON.parse(localStorage.getItem("megaun_users") || "{}");
+  if (users[email] && users[email].password === password) {
+    sessionStorage.setItem("megaun_logged_in", email);
+    showLoggedIn(email);
+  } else {
+    errorEl.textContent = "E-mail ou senha incorretos.";
+    errorEl.style.display = "block";
+  }
+  return false;
+}
+
+function showLoggedIn(email) {
+  var users = JSON.parse(localStorage.getItem("megaun_users") || "{}");
+  var user = users[email];
+  if (!user) return;
+
+  document.getElementById("loginSection").style.display = "none";
+  document.getElementById("loggedInSection").style.display = "block";
+  document.getElementById("userName").textContent = user.name;
+  document.getElementById("userEmail").textContent = user.email;
+  var initials = user.name.split(" ").map(function(w){return w[0];}).slice(0,2).join("").toUpperCase();
+  document.getElementById("userAvatar").textContent = initials;
+}
+
+function logout() {
+  sessionStorage.removeItem("megaun_logged_in");
+  document.getElementById("loginSection").style.display = "block";
+  document.getElementById("loggedInSection").style.display = "none";
+  document.getElementById("email").value = "";
+  document.getElementById("password").value = "";
+}
+
+// Check if already logged in on page load
+window.addEventListener("DOMContentLoaded", function() {
+  var loggedIn = sessionStorage.getItem("megaun_logged_in");
+  if (loggedIn) {
+    showLoggedIn(loggedIn);
+  }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+  navbarToggleSidebar();
+  navActivePage();
+});
+</script>
+<script type="text/javascript" src="./main.85741bff.js"></script>
+</body>
+</html>
